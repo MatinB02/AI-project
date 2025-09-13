@@ -1,8 +1,4 @@
-# AI-project
-Artificial intelligence project
-
-
-# Image Segmentation with UNet, AttentionUNet, and ResidualAttentionUNet
+# Phase 1: Image Segmentation with UNet, AttentionUNet, and ResidualAttentionUNet
 
 ## 📌 Project Overview
 
@@ -26,7 +22,7 @@ Optimization is performed with **AdamW** along with a **learning rate scheduler*
 ## 👨‍💻 Authors
 
 * Matin Bagheri
-* Ali Hossein Khalaj
+* Ali HosseinKhalaj
 * Parsa NorouziManesh
 
 ---
@@ -69,7 +65,7 @@ The project consists of three main stages:
 * **Optimizer**: AdamW
 * **Scheduler**: Learning rate scheduler for stable convergence
 * **Loss Function**: IoU Loss + Dice Loss + BCE Loss
-* **Metrics**: Accuracy, IoU Score, Dice Score
+* **Metrics**: Validation loss, IoU Score, Dice Score
 
 ---
 
@@ -77,17 +73,19 @@ The project consists of three main stages:
 
 The models were trained and evaluated on the Massachusetts Roads dataset.
 
-| Model                       | Best Epoch | Val Loss | IoU Score | Dice Score |
+| Model                       | Num Epochs | Val Loss | IoU Score | Dice Score |
 | --------------------------- | ---------: | -------: | --------: | ---------: |
-| **UNet**                    |         32 |   0.3143 |    0.5441 |     0.6799 |
-| **Attention UNet**          |         44 |   0.2615 |    0.6307 |     0.7587 |
-| **Residual Attention UNet** |         30 |   0.2397 |    0.6640 |     0.7964 |
+| **UNet**                    |         15 |   0.59 |    0.69 |     0.81 |
+| **Attention UNet**          |         15 |   0.61 |    0.67 |     0.80 |
+| **Residual Attention UNet** |         15 |   0.59 |    0.68 |     0.81 |
 
 ### Observations
 
-* **UNet** serves as a solid baseline but struggles with fine road structures.
-* **Attention UNet** improves segmentation by focusing on road regions.
-* **Residual Attention UNet** achieves the **best overall performance**, thanks to residual connections + attention mechanisms.
+* **UNet** achieved the **highest IoU (0.69)** and Dice (0.81), serving as a strong baseline.
+* **Attention UNet** slightly underperformed compared to vanilla UNet, suggesting that the attention mechanism did not yield significant benefits within the given training setup and dataset size.
+* **Residual Attention UNet** performed similarly to UNet, showing stable Dice scores but no substantial improvement in IoU or loss reduction.
+
+👉 Overall, all three models converge to **very close performance**, with **UNet providing the best balance** under the current configuration.
 
 ---
 
@@ -96,3 +94,6 @@ The models were trained and evaluated on the Massachusetts Roads dataset.
 This project is for **educational purposes** as part of the AI course at Sharif University of Technology.
 
 ---
+
+
+#Phase 2:
